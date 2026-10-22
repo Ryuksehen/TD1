@@ -1,74 +1,121 @@
 # Taller 1: Dart + Gitflow — Sistema de Gestión de Inventario
 
-¡Bienvenido al **Taller 1**! Este proyecto consiste en una aplicación de consola desarrollada en Dart para **gestionar el catálogo de productos de una tienda** mediante un sistema CRUD (Crear, Leer, Actualizar, Eliminar). 
+¡Bienvenido al **Taller 1**! Este proyecto consiste en una aplicación de consola desarrollada en Dart para **gestionar el catálogo de productos de una tienda** mediante un sistema CRUD (Crear, Listar, Actualizar, Eliminar) y salida segura. 
 
-El desarrollo se ha estructurado aplicando buenas prácticas de programación y la metodología de trabajo colaborativo **Gitflow**.
+El desarrollo se encuentra modularizado y estructurado bajo buenas prácticas de programación colaborativa mediante la metodología **Gitflow**.
 
 ---
 
 ## 🎯 Objetivos
 
-- **Objetivo General:** Desarrollar una aplicación funcional en Dart desde la consola para la gestión de productos, reforzando el uso de estructuras de datos y flujos de control. Permitiendo crear, listar, actualizar y eliminar productos, utilizando:
+- **Objetivo General:** Desarrollar una aplicación funcional en consola con Dart para la gestión de inventario, reforzando el uso de estructuras de datos (`List`, `Map`), modularización de código y control de flujo.
+- **Objetivos Específicos:**
+  - Implementar un flujo de trabajo colaborativo estricto mediante Gitflow.
+  - Modularizar cada funcionalidad CRUD en archivos independientes.
+  - Asegurar la integridad del programa mediante manejo de excepciones y validaciones de entrada.
+
+---
+
+## 📁 Estructura del Proyecto
+
+El código está organizado de manera modular separando los submódulos de ejecución y la lógica principal:
+
+```text
+TallerDart1/
+├── bin/
+│   ├── add.dart        # Módulo para agregar productos
+│   ├── delete.dart     # Módulo para eliminar productos
+│   ├── list.dart       # Módulo para listar productos
+│   ├── quit.dart       # Módulo para salir de la aplicación
+│   └── update.dart     # Módulo para actualizar productos
+├── lib/
+│   ├── main.dart       # Punto de entrada y ciclo del menú principal
+│   └── producto.dart   # Estructura del modelo / plantilla de datos
+├── .gitignore
+└── README.md
+```
 
 ---
 
 ## ⚙️ ¿Cómo funciona la aplicación?
 
-La aplicación se ejecuta completamente desde la terminal y simula el inventario de una tienda a través de un bucle continuo. Cada producto se almacena internamente como un `Map<String, dynamic>` dentro de una `List`.
+La aplicación se ejecuta en bucle continuo dentro de la terminal. Los productos se administran en memoria como elementos `Map<String, dynamic>` estructurados dentro de una lista general.
 
-### Menú Principal y Funcionalidades:
+### Módulos y Funcionalidades:
 
-1. **Agregar producto:** Solicita el nombre, precio y cantidad disponible. Crea un nuevo registro y lo añade a la lista general.
-2. **Listar productos:** Recorre la lista de productos y los muestra en pantalla con un formato legible, incluyendo un número de índice para su fácil identificación.
-3. **Actualizar producto:** Solicita el índice del producto que se desea modificar. Permite actualizar campos individuales (Nombre, Precio o Cantidad); si el usuario deja un campo vacío, este conserva su valor anterior.
-4. **Eliminar producto:** Solicita el índice del producto y lo remueve permanentemente de la lista.
-5. **Salir:** Rompe el ciclo de ejecución y finaliza el programa de forma segura.
+1. **Agregar producto (`add.dart`):** Solicita nombre, precio y cantidad disponible para registrar un nuevo producto en la lista.
+2. **Listar productos (`list.dart`):** Itera y muestra los productos existentes con formato legible e índice numérico para su referencia.
+3. **Actualizar producto (`update.dart`):** Permite modificar campos puntuales (nombre, precio, cantidad) de un producto existente manteniendo los datos previos si el usuario omite el valor.
+4. **Eliminar producto (`delete.dart`):** Remueve de forma definitiva un elemento según su índice.
+5. **Salir (`quit.dart`):** Finaliza el bucle de ejecución de forma limpia y segura.
 
-> ⚠️ **Validación de Errores:** El sistema cuenta con control de excepciones básico para evitar caídas del programa ante ingresos de datos vacíos, tipos de datos incorrectos (letras en campos de números) o índices fuera de rango.
+> ⚠️ **Validación de Datos:** Se implementa control de excepciones para evitar caídas del sistema por entradas vacías, tipos de datos incompatibles o selección de índices inexistentes.
 
 ---
 
 ## 🚀 Cómo ejecutar el proyecto
 
-Sigue estos pasos para clonar y correr la aplicación en tu entorno local:
-
 ### Prerrequisitos
-Tener instalado el SDK de Dart en tu máquina. Si no lo tienes, puedes descargarlo desde [dart.dev](https://dart.dev).
+Tener instalado el SDK de Dart en el equipo ([dart.dev](https://dart.dev)).
 
-### Pasos para la ejecución:
+### Pasos:
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone <URL_DE_TU_REPOSITORIO>
+   git clone https://github.com/Ryuksehen/TD1.git
    cd TallerDart1
    ```
 
-
-
 2. **Ejecutar la aplicación:**
    ```bash
-   dart run bin/main.dart
+   dart run lib/main.dart
    ```
-   
----
-
-## 🌿 Flujo de Trabajo (Gitflow & Commits)
-
-Para garantizar un desarrollo organizado y colaborativo, se utilizó la metodología **Gitflow**:
-
-- **`main`**: Rama que contiene el código completamente estable y listo para producción.
-- **`develop`**: Rama de integración donde se consolidaron todas las características antes de pasar a la principal.
-- **`feature/`**: Ramas independientes creadas para el desarrollo de módulos específicos (ej. `feature/add`, `feature/list`, `feature/etc`).
-
-### Buenas Prácticas de Commits
-Se aplicaron commits concretos y consistentes que agrupan módulos completos de trabajo (por ejemplo, asegurando que la opción de "Listar" o "Actualizar" funcionara en su totalidad antes de realizar el commit).
 
 ---
 
-## 👥 Equipo de Desarrollo
+## 👥 Equipo de Desarrollo y Asignación de Tareas
 
-* **Omar David Meneses Verona** - *SCRUM MASTER / Gestión de Gitflow* - [GitHub](https://github.com)
-* **Alejandro Gomez** - *Desarrollador / Lógica de Negocio* - [GitHub](https://github.com)
-* **Erick Camargo** - *Desarrollador / Lógica de Negocio* - [GitHub](https://github.com)
-* **Gabriel Mosquera** - *Desarrollador / Lógica de Negocio* - [GitHub](https://github.com)
-* **Samuel Marin** - *Desarrollador / Lógica de Negocio* - [GitHub](https://github.com)
+| Integrante | Rol | Módulo Asignado | Rama Gitflow |
+| :--- | :--- | :--- | :--- |
+| **Omar David Meneses** | Scrum Master / Integrador | Salir del sistema (`quit.dart`) | `feature/quit` |
+| **Erick Camargo** | Desarrollador | Agregar producto (`add.dart`) | `feature/add` |
+| **Gabriel Mosquera** | Desarrollador | Listar productos (`list.dart`) | `feature/list` |
+| **Alejandro Gómez** | Desarrollador | Actualizar producto (`update.dart`) | `feature/update` |
+| **Samuel Marín** | Desarrollador | Eliminar producto (`delete.dart`) | `feature/delete` |
+
+---
+
+## 🌿 Flujo de Trabajo (Gitflow Paso a Paso)
+
+Para mantener el orden en el repositorio, nadie realiza cambios directamente sobre `main` ni `develop`. Cada integrante sigue este ciclo:
+
+### 1. Actualizar `develop` y crear la rama feature
+Antes de empezar a programar, sitúate en `develop`, trae los últimos cambios del equipo y crea tu rama asignada:
+```bash
+git checkout develop
+git pull origin develop
+git checkout -b feature/<nombre-modulo>
+```
+*Ejemplo:* `git checkout -b feature/add`
+
+### 2. Desarrollar y confirmar cambios
+Realiza los cambios correspondientes a tu funcionalidad y genera commits descriptivos:
+```bash
+git add .
+git commit -m "feat: implementar modulo add para registro de productos"
+```
+
+### 3. Subir la rama al repositorio remoto
+```bash
+git push origin feature/<nombre-modulo>
+```
+
+### 4. Crear el Pull Request (PR)
+1. Ve al repositorio en GitHub.
+2. Abre un **Pull Request** apuntando como base a la rama **`develop`** (nunca a `main`):
+   - **Base:** `develop`  ←  **Compare:** `feature/<nombre-modulo>`
+3. Asigna la revisión al Scrum Master.
+
+### 5. Revisión y Merge
+- Una vez revisado y aprobado el código por el Scrum Master, se realiza el merge hacia **`develop`**.
+- Cuando todas las características estén terminadas y probadas en conjunto en `develop`, el Scrum Master genera el merge final hacia **`main`** para la entrega de la versión estable.
