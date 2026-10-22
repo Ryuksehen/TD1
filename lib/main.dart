@@ -1,7 +1,8 @@
 import 'dart:io';
-import 'producto.dart';
-import '../bin/add.dart'; // impotacion del agregar
 
+import 'producto.dart';
+import '../bin/add.dart'; // importacion del agregar
+import '../bin/list.dart'; // importacion del listar
 
 void main() {
   List<Producto> catalogo = [];
@@ -25,7 +26,7 @@ void main() {
 
         break;
       case '2':
-        // Funcion de Agregar list(catalogo) Gabriel
+        listarProductos(catalogo);
 
         break;
       case '3':
