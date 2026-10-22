@@ -3,6 +3,7 @@ import 'dart:io';
 import 'producto.dart';
 import '../bin/add.dart'; // importacion del agregar
 import '../bin/list.dart'; // importacion del listar
+import '../bin/update.dart'; // importacion del actualizar
 
 void main() {
   List<Producto> catalogo = [];
@@ -30,7 +31,7 @@ void main() {
 
         break;
       case '3':
-        // Funcion de Agregar update(catalogo) Alejandro
+        actualizarProducto(catalogo);
 
         break;
       case '4':
