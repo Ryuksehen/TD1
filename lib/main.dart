@@ -1,9 +1,10 @@
 import 'dart:io';
 import 'producto.dart';
+import '../bin/add.dart'; // impotacion del agregar
 
 
 void main() {
-  List<Producto> catalogo;
+  List<Producto> catalogo = [];
 
   bool estado = true;
 
@@ -20,7 +21,7 @@ void main() {
 
     switch (opcion) {
       case '1':
-        // Funcion de Agregar add(catalogo) Erik
+        agregarProducto(catalogo);
 
         break;
       case '2':
