@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import '../bin/delete.dart'; // importacion del eliminar
 import 'producto.dart';
 import '../bin/add.dart'; // importacion del agregar
 import '../bin/list.dart'; // importacion del listar
@@ -35,7 +36,7 @@ void main() {
 
         break;
       case '4':
-        // Funcion de Agregar delete(catalogo) Samuel
+         eliminarProducto(catalogo);
 
         break;
       case '5':
