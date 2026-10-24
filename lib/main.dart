@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import '../bin/delete.dart'; // importacion del eliminar
+import '../bin/quit.dart';
 import 'producto.dart';
 import '../bin/add.dart'; // importacion del agregar
 import '../bin/list.dart'; // importacion del listar
@@ -36,12 +37,11 @@ void main() {
 
         break;
       case '4':
-         eliminarProducto(catalogo);
+        eliminarProducto(catalogo);
 
         break;
       case '5':
-        // Funcion de Agregar add(catalogo) Scrum Master
-
+        estado = quit();
         break;
 
       default:
