@@ -1,9 +1,14 @@
 import 'dart:io';
-import 'producto.dart';
 
+import '../bin/delete.dart'; // importacion del eliminar
+import '../bin/quit.dart';
+import 'producto.dart';
+import '../bin/add.dart'; // importacion del agregar
+import '../bin/list.dart'; // importacion del listar
+import '../bin/update.dart'; // importacion del actualizar
 
 void main() {
-  List<Producto> catalogo;
+  List<Producto> catalogo = [];
 
   bool estado = true;
 
@@ -20,24 +25,23 @@ void main() {
 
     switch (opcion) {
       case '1':
-        // Funcion de Agregar add(catalogo) Erik
+        agregarProducto(catalogo);
 
         break;
       case '2':
-        // Funcion de Agregar list(catalogo) Gabriel
+        listarProductos(catalogo);
 
         break;
       case '3':
-        // Funcion de Agregar update(catalogo) Alejandro
+        actualizarProducto(catalogo);
 
         break;
       case '4':
-        // Funcion de Agregar delete(catalogo) Samuel
+        eliminarProducto(catalogo);
 
         break;
       case '5':
-        // Funcion de Agregar add(catalogo) Scrum Master
-
+        estado = quit();
         break;
 
       default:
